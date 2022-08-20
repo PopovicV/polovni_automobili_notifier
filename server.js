@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true});
 const db = mongoose.connection;
@@ -20,6 +21,8 @@ app.use('/auris', toyotaAurisRouter);
 app.use('/civic', hondaCivicRouter);
 
 app.listen(3000, () => console.log('Server Started'));
+app.use(cors());
+
 // Cars category ID = 26
 // Honda brand ID = 114
 // Toyota brand ID = 205
