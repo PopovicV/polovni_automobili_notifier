@@ -9,7 +9,8 @@ const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
 db.on('open', () => console.log('Connected to Database'));
 //db.dropDatabase()
-
+app.listen(3000, () => console.log('Server Started'));
+app.use(cors());
 app.use(express.json());
 
 const toyotaYarisRouter = require('./routes/yaris');
@@ -21,9 +22,6 @@ app.use('/yaris', toyotaYarisRouter);
 app.use('/auris', toyotaAurisRouter);
 app.use('/civic', hondaCivicRouter);
 app.use('/ads', adsRouter);
-
-app.listen(3000, () => console.log('Server Started'));
-app.use(cors());
 
 // Cars category ID = 26
 // Honda brand ID = 114
