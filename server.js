@@ -15,10 +15,12 @@ app.use(express.json());
 const toyotaYarisRouter = require('./routes/yaris');
 const toyotaAurisRouter = require('./routes/auris');
 const hondaCivicRouter = require('./routes/civic');
+const adsRouter = require('./routes/ads');
 
 app.use('/yaris', toyotaYarisRouter);
 app.use('/auris', toyotaAurisRouter);
 app.use('/civic', hondaCivicRouter);
+app.use('/ads', adsRouter);
 
 app.listen(3000, () => console.log('Server Started'));
 app.use(cors());
