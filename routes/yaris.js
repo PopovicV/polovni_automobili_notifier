@@ -33,6 +33,7 @@ router.get('/init', async (req, res) => {
                         brand: currentAd.brandName,
                         model: currentAd.modelName,
                         url: 'https://www.polovniautomobili.com' + currentAd.url,
+                        image: currentAd.photoLink[3],
                         city: currentAd.city,
                         price: currentAd.price,
                         mileage: currentAd.mileage,
@@ -47,28 +48,6 @@ router.get('/init', async (req, res) => {
                 }
             }).catch(err => console.log('error:', err.message));
         }
-        /* console.log(result.classifieds[0]);
-        for (let i = 0; i < result.classifieds.length; i ++) {
-            let currentAd = result.classifieds[i];
-            let ad = new Ads({
-                adId: currentAd.AdID,
-                title: currentAd.title,
-                brand: currentAd.brandName,
-                model: currentAd.modelName,
-                url: 'https://www.polovniautomobili.com' + currentAd.url,
-                city: currentAd.city,
-                price: currentAd.price,
-                mileage: currentAd.mileage,
-                power: currentAd.power,
-                horsePower: Math.round(currentAd.power * 1.341),
-                year: currentAd.year,
-                fuelType: currentAd.fuelType,
-                doornum: currentAd.doornum,
-                gearBox: currentAd.gearBox
-            });
-            const response = tryToSaveAd(ad);
-        } */
-        
         res.json({message: 'Ads added to DB!'});
     }) 
     .catch(err => res.status(500).send(err));

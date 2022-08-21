@@ -21,6 +21,10 @@ const adsSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    image: {
+        type: String,
+        required: false
+    },
     city: {
         type: String,
         required: false
